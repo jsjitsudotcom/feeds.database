@@ -20,7 +20,8 @@
     "precommit": "lint-staged",
     "commit": "git-cz",
     "coveralls": "cat ./coverage/lcov.info | npx coveralls",
-    "do:release": "corp-semantic-release"
+    "do:release": "corp-semantic-release",
+    "release": "npm run do:release"
   },
   "author": "",
   "license": "ISC",

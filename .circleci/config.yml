@@ -1,6 +1,6 @@
-# #################################
-# #           VARIABLES           #
-# #################################
+#################################
+#           VARIABLES           #
+#################################
 
 restore_cache: &restore_cache
   keys:
@@ -33,6 +33,8 @@ add_git_user: &add_git_user
 #################################
 #      CIRCLE CI WORKFLOW       #
 #################################
+
+
 version: 2
 jobs:
   build:
@@ -47,18 +49,20 @@ jobs:
       - run: yarn seed
       - run: yarn test:ci
 
-  # release:
-  #   docker: *docker
-  #   working_directory: *working-directory
-  #   steps:
-  #     - checkout
-  #     - restore_cache: *restore_cache
-  #     - run: *install
-  #     - save_cache: *save_cache
-  #     - run: *add_git_user
-  #     - run: yarn test:ci
-  #     - run: yarn coveralls
-  #     - run: yarn release
+  release:
+    docker: *docker
+    working_directory: *working-directory
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *install
+      - save_cache: *save_cache
+      - run: *add_git_user
+      - run: yarn migrate
+      - run: yarn seed
+      - run: yarn test:ci
+      - run: yarn coveralls
+      - run: yarn release
 
 workflows:
   version: 2
@@ -69,8 +73,8 @@ workflows:
             branches:
               ignore: 
                 - master
-      # - release:
-      #     filters:
-      #       branches:
-      #         only: 
-      #           - master
+      - release:
+          filters:
+            branches:
+              only: 
+                - master
