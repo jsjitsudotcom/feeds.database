@@ -1,0 +1,6 @@
+.database
+.circleci
+.eslintignore
+.eslintrc
+.prettierrc
+database-schema.xml
