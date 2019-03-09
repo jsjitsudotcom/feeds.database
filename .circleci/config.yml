@@ -48,6 +48,7 @@ jobs:
       - run: yarn migrate
       - run: yarn seed
       - run: yarn test:ci
+      - run: yarn see:logs
 
   release:
     docker: *docker
