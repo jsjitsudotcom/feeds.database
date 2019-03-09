@@ -20,6 +20,7 @@
     "seed": "sequelize db:seed:all",
     "precommit": "lint-staged",
     "commit": "git-cz",
+    "see:logs": "node see.js",
     "coveralls": "cat ./coverage/lcov.info | npx coveralls",
     "do:release": "corp-semantic-release",
     "release": "npm run do:release"
