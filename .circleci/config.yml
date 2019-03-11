@@ -48,7 +48,6 @@ jobs:
       - run: yarn migrate
       - run: yarn seed
       - run: yarn test:ci
-      - run: yarn see:logs
 
   release:
     docker: *docker
@@ -64,7 +63,7 @@ jobs:
       - run: yarn test:ci
       - run: yarn coveralls
       - run: yarn release
-      - run: yarn migrate-in-production
+      - run: yarn migrate:production
 
 workflows:
   version: 2

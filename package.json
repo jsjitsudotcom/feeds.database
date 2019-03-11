@@ -16,11 +16,10 @@
     "test:unit": "jest --watch unit.test.js",
     "test:ci": "CI=true jest --coverage --forceExit",
     "migrate": "sequelize db:migrate",
-    "migrate-in-production": "NODE_ENV=production sequelize db:migrate",
+    "migrate:production": "NODE_ENV=production sequelize db:migrate",
     "seed": "sequelize db:seed:all",
     "precommit": "lint-staged",
     "commit": "git-cz",
-    "see:logs": "node see.js",
     "coveralls": "cat ./coverage/lcov.info | npx coveralls",
     "do:release": "corp-semantic-release",
     "release": "npm run do:release"
